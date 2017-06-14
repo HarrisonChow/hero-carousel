@@ -27,7 +27,7 @@ class TestComponent extends Component {
   }
 
   leftHandler(index) {
-    if (index == 0) {
+    if (index === 0) {
       this.setState({
         imageIndex: imageData.carousel.length-1
       });
@@ -39,7 +39,7 @@ class TestComponent extends Component {
   }
 
   rightHandler(index) {
-    if (index == imageData.carousel.length-1) {
+    if (index === imageData.carousel.length-1) {
       this.setState({
         imageIndex: 0
       });
@@ -52,15 +52,7 @@ class TestComponent extends Component {
 
   componentDidMount = () => {
     setInterval(function() {
-      if (this.state.imageIndex < imageData.carousel.length-1) {
-        this.setState({
-          imageIndex:this.state.imageIndex+1
-        });
-      } else {
-        this.setState({
-          imageIndex:0
-        });
-      }
+      this.rightHandler(this.state.imageIndex);
     }.bind(this), 5000);
   }
 

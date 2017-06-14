@@ -4846,15 +4846,7 @@ var TestComponent = function (_Component) {
 
     _this.componentDidMount = function () {
       setInterval(function () {
-        if (this.state.imageIndex < _data2.default.carousel.length - 1) {
-          this.setState({
-            imageIndex: this.state.imageIndex + 1
-          });
-        } else {
-          this.setState({
-            imageIndex: 0
-          });
-        }
+        this.rightHandler(this.state.imageIndex);
       }.bind(_this), 5000);
     };
 
@@ -4879,7 +4871,7 @@ var TestComponent = function (_Component) {
   }, {
     key: 'leftHandler',
     value: function leftHandler(index) {
-      if (index == 0) {
+      if (index === 0) {
         this.setState({
           imageIndex: _data2.default.carousel.length - 1
         });
@@ -4892,7 +4884,7 @@ var TestComponent = function (_Component) {
   }, {
     key: 'rightHandler',
     value: function rightHandler(index) {
-      if (index == _data2.default.carousel.length - 1) {
+      if (index === _data2.default.carousel.length - 1) {
         this.setState({
           imageIndex: 0
         });

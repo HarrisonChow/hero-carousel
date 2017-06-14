@@ -65,8 +65,8 @@ class TestComponent extends Component {
   }
 
   render(){
-    var mainThis = this;
-    var style = {
+    let mainThis = this;
+    let style = {
         li: {
           top : '400px',
           right : '80px',

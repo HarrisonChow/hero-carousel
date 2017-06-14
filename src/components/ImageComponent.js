@@ -9,9 +9,9 @@ export default class ImageComponent extends Component {
   }
 
   render(){
-    var getIndex = this.props.imageIndex;
-    var data = this.props.data;
-    var sectionStyle = {
+    let getIndex = this.props.imageIndex;
+    let data = this.props.data;
+    let sectionStyle = {
       width: "100%",
       height: "400px",
       image: {
@@ -38,7 +38,7 @@ export default class ImageComponent extends Component {
       }
     };
 
-    var imageTitle = data.carousel.map(function(item, index) {
+    let imageTitle = data.carousel.map(function(item, index) {
       if (getIndex === index) {
         return (
           <div key={index} style={sectionStyle}>

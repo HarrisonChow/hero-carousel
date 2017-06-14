@@ -4666,7 +4666,7 @@ var IconComponent = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'icon', style: divStyle },
+        { style: divStyle },
         '\uF102'
       );
     }
@@ -4714,9 +4714,9 @@ var ImageComponent = function (_Component) {
   }
 
   _createClass(ImageComponent, [{
-    key: 'render',
+    key: "render",
     value: function render() {
-      var _span;
+      var _synopsis;
 
       var _props = this.props,
           imageIndex = _props.imageIndex,
@@ -4729,18 +4729,18 @@ var ImageComponent = function (_Component) {
           position: 'relative',
           width: '100%'
         },
-        h2: {
+        content: {
           position: 'absolute',
           top: '150px',
           left: '50px',
           width: '80%'
         },
-        span: (_span = {
+        synopsis: (_synopsis = {
           color: 'white',
           font: '15px/25px Helvetica, Sans-Serif',
           letterSpacing: '-1px',
           background: 'rgb(0, 0, 0)'
-        }, _defineProperty(_span, 'background', 'rgba(0, 0, 0, 0.7)'), _defineProperty(_span, 'padding', '10px'), _span),
+        }, _defineProperty(_synopsis, "background", 'rgba(0, 0, 0, 0.7)'), _defineProperty(_synopsis, "padding", '10px'), _synopsis),
         title: {
           color: '#FFF',
           fontSize: '25px'
@@ -4756,31 +4756,31 @@ var ImageComponent = function (_Component) {
       var item = data.carousel[index];
 
       var image = _react2.default.createElement(
-        'div',
+        "div",
         { style: sectionStyle },
         _react2.default.createElement(
-          'a',
+          "a",
           { href: 'http://' + item.link },
-          _react2.default.createElement('img', { style: sectionStyle.image, src: __webpack_require__(192)("./" + item.imageurl) })
+          _react2.default.createElement("img", { style: sectionStyle.image, src: __webpack_require__(192)("./" + item.imageurl) })
         ),
         _react2.default.createElement(
-          'h2',
-          { style: sectionStyle.h2 },
+          "div",
+          { style: sectionStyle.content },
           _react2.default.createElement(
-            'p',
+            "p",
             { style: sectionStyle.title },
             item.title
           ),
           _react2.default.createElement(
-            'span',
-            { style: sectionStyle.span },
+            "p",
+            { style: sectionStyle.synopsis },
             item.synopsis
           )
         )
       );
       return _react2.default.createElement(
-        'div',
-        { className: 'view' },
+        "div",
+        { className: "view" },
         image
       );
     }
@@ -4855,9 +4855,6 @@ var TestComponent = function (_Component) {
       imageIndex: 0,
       total: 0
     };
-    _this.handleClick = _this.handleClick.bind(_this);
-    _this.leftHandler = _this.leftHandler.bind(_this);
-    _this.rightHandler = _this.rightHandler.bind(_this);
     return _this;
   }
 
@@ -4899,12 +4896,13 @@ var TestComponent = function (_Component) {
     value: function render() {
       var mainThis = this;
       var style = {
-        li: {
+        icon: {
           top: '400px',
           right: '80px',
           zIndex: '999',
           position: 'absolute',
-          display: 'flex'
+          display: 'flex',
+          cursor: 'hand'
         },
         left: {
           top: '300px',
@@ -4912,7 +4910,8 @@ var TestComponent = function (_Component) {
           zIndex: '999',
           fontSize: '40px',
           color: '#fff',
-          position: 'absolute'
+          position: 'absolute',
+          cursor: 'hand'
         },
         right: {
           top: '300px',
@@ -4920,30 +4919,28 @@ var TestComponent = function (_Component) {
           zIndex: '999',
           fontSize: '40px',
           color: '#fff',
-          position: 'absolute'
+          position: 'absolute',
+          cursor: 'hand'
         }
       };
+
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
-          'ul',
-          null,
-          _react2.default.createElement(
-            'li',
-            { style: style.li },
-            _data2.default.carousel.map(function (user, i) {
-              return _react2.default.createElement(
-                'div',
-                { style: style.icon, key: i, onClick: mainThis.handleClick.bind(mainThis, i) },
-                _react2.default.createElement(_IconComponent2.default, null)
-              );
-            })
-          )
+          'div',
+          { style: style.icon },
+          _data2.default.carousel.map(function (_, i) {
+            return _react2.default.createElement(
+              'div',
+              { key: i, onClick: mainThis.handleClick.bind(mainThis, i) },
+              _react2.default.createElement(_IconComponent2.default, null)
+            );
+          })
         ),
         _react2.default.createElement(
           'div',
-          { style: style.left, onClick: this.leftHandler.bind(this, this.state.imageIndex) },
+          { style: style.left, onClick: this.leftHandler.bind(this.state.imageIndex) },
           '<'
         ),
         _react2.default.createElement(

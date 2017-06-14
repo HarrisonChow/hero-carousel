@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 
 export default class ImageComponent extends Component {
@@ -10,20 +8,20 @@ export default class ImageComponent extends Component {
 
   render(){
     const { imageIndex, data } = this.props;
-    const sectionStyle = {
+    const style = {
       width: "100%",
       height: "400px",
       image: {
         position: 'relative',
         width: '100%',
       },
-      h2: {
+      content: {
         position: 'absolute',
         top: '150px',
         left: '50px',
         width: '80%',
       },
-      span: {
+      synopsis: {
         color: 'white',
         font: '15px/25px Helvetica, Sans-Serif',
         letterSpacing: '-1px',
@@ -46,14 +44,14 @@ export default class ImageComponent extends Component {
     const item = data.carousel[index];
 
     const image = (
-        <div style={sectionStyle}>
+        <div style={style}>
           <a href={'http://'+item.link}>
-            <img style={sectionStyle.image} src={require('../'+item.imageurl)} />
+            <img style={style.image} src={require('../'+item.imageurl)} />
           </a>
-          <h2 style={sectionStyle.h2}>
-            <p style={sectionStyle.title}>{item.title}</p>
-            <span style={sectionStyle.span}>{item.synopsis}</span>
-          </h2>
+          <div style={style.content}>
+            <p style={style.title}>{item.title}</p>
+            <p style={style.synopsis}>{item.synopsis}</p>
+          </div>
         </div>
       )
     return (

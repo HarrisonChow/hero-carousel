@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import IconComponent from './components/IconComponent';
@@ -15,9 +13,6 @@ class TestComponent extends Component {
       imageIndex: 0,
       total:0,
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.leftHandler = this.leftHandler.bind(this);
-    this.rightHandler = this.rightHandler.bind(this);
   }
 
   handleClick(index) {
@@ -59,12 +54,13 @@ class TestComponent extends Component {
   render(){
     const mainThis = this;
     const style = {
-      li: {
+      icon: {
         top : '400px',
         right : '80px',
         zIndex: '999',
         position: 'absolute',
-        display: 'flex'
+        display: 'flex',
+        cursor: 'hand',
       },
       left: {
         top : '300px',
@@ -73,6 +69,7 @@ class TestComponent extends Component {
         fontSize:'40px',
         color: '#fff',
         position: 'absolute',
+        cursor: 'hand',
       },
       right: {
         top : '300px',
@@ -81,20 +78,22 @@ class TestComponent extends Component {
         fontSize:'40px',
         color: '#fff',
         position: 'absolute',
+        cursor: 'hand',
       }
     };
+
     return (
       <div>
-        <ul>
-          <li style={style.li}>
-            {
-              imageData.carousel.map(function(user, i){
-                return <div style={style.icon} key={i} onClick={mainThis.handleClick.bind(mainThis, i)}><IconComponent/></div>
-              })
-            }
-          </li>
-        </ul>
-        <div style={style.left} onClick={this.leftHandler.bind(this,this.state.imageIndex)}>&lt;</div>
+        <div style={style.icon}>
+          {
+            imageData.carousel.map(function(_, i){
+              return (
+                <div key={i} onClick={mainThis.handleClick.bind(mainThis, i)}><IconComponent/></div>
+              )
+            })
+          }
+        </div>
+        <div style={style.left} onClick={this.leftHandler.bind(this.state.imageIndex)}>&lt;</div>
         <div style={style.right} onClick={this.rightHandler.bind(this,this.state.imageIndex)}>&gt;</div>
         <ImageComponent imageIndex={this.state.imageIndex} data={imageData}/>
       </div>

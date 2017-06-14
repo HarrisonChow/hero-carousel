@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 
 export default class IconComponent extends Component {
@@ -17,7 +15,7 @@ export default class IconComponent extends Component {
     };
 
     return (
-      <div className="icon" style={divStyle}></div>
+      <div style={divStyle}></div>
     );
   }
 }

@@ -6,9 +6,8 @@
 
 2. `npm install`
 
-3. `./node_modules/.bin/webpack`
+3. `npm start`
 
-4. `node server`
 
 ## step 2
 

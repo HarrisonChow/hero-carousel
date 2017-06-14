@@ -9,8 +9,8 @@ export default class ImageComponent extends Component {
   }
 
   render(){
-    let { imageIndex, data } = this.props;
-    let sectionStyle = {
+    const { imageIndex, data } = this.props;
+    const sectionStyle = {
       width: "100%",
       height: "400px",
       image: {
@@ -36,9 +36,16 @@ export default class ImageComponent extends Component {
         fontSize: '25px',
       }
     };
-    let item = data.carousel[imageIndex];
 
-    let image = (
+    let index = 0;
+
+    if (imageIndex < data.carousel.length-1 && imageIndex >= 0) {
+      index = imageIndex;
+    }
+
+    const item = data.carousel[index];
+
+    const image = (
         <div style={sectionStyle}>
           <a href={'http://'+item.link}>
             <img style={sectionStyle.image} src={require('../'+item.imageurl)} />

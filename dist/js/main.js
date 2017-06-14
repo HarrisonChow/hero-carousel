@@ -4746,7 +4746,14 @@ var ImageComponent = function (_Component) {
           fontSize: '25px'
         }
       };
-      var item = data.carousel[imageIndex];
+
+      var index = 0;
+
+      if (imageIndex < data.carousel.length - 1 && imageIndex >= 0) {
+        index = imageIndex;
+      }
+
+      var item = data.carousel[index];
 
       var image = _react2.default.createElement(
         'div',

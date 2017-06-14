@@ -65,31 +65,31 @@ class TestComponent extends Component {
   }
 
   render(){
-    let mainThis = this;
-    let style = {
-        li: {
-          top : '400px',
-          right : '80px',
-          zIndex: '999',
-          position: 'absolute',
-          display: 'flex'
-        },
-        left: {
-          top : '300px',
-          left : '40px',
-          zIndex: '999',
-          fontSize:'40px',
-          color: '#fff',
-          position: 'absolute',
-        },
-        right: {
-          top : '300px',
-          right : '40px',
-          zIndex: '999',
-          fontSize:'40px',
-          color: '#fff',
-          position: 'absolute',
-        }
+    const mainThis = this;
+    const style = {
+      li: {
+        top : '400px',
+        right : '80px',
+        zIndex: '999',
+        position: 'absolute',
+        display: 'flex'
+      },
+      left: {
+        top : '300px',
+        left : '40px',
+        zIndex: '999',
+        fontSize:'40px',
+        color: '#fff',
+        position: 'absolute',
+      },
+      right: {
+        top : '300px',
+        right : '40px',
+        zIndex: '999',
+        fontSize:'40px',
+        color: '#fff',
+        position: 'absolute',
+      }
     };
     return (
       <div>

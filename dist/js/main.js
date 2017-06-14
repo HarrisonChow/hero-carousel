@@ -4718,8 +4718,10 @@ var ImageComponent = function (_Component) {
     value: function render() {
       var _span;
 
-      var getIndex = this.props.imageIndex;
-      var data = this.props.data;
+      var _props = this.props,
+          imageIndex = _props.imageIndex,
+          data = _props.data;
+
       var sectionStyle = {
         width: "100%",
         height: "400px",
@@ -4744,38 +4746,35 @@ var ImageComponent = function (_Component) {
           fontSize: '25px'
         }
       };
+      var item = data.carousel[imageIndex];
 
-      var imageTitle = data.carousel.map(function (item, index) {
-        if (getIndex === index) {
-          return _react2.default.createElement(
-            'div',
-            { key: index, style: sectionStyle },
-            _react2.default.createElement(
-              'a',
-              { href: 'http://' + item.link },
-              _react2.default.createElement('img', { style: sectionStyle.image, src: __webpack_require__(192)("./" + item.imageurl) })
-            ),
-            _react2.default.createElement(
-              'h2',
-              { style: sectionStyle.h2 },
-              _react2.default.createElement(
-                'p',
-                { style: sectionStyle.title },
-                item.title
-              ),
-              _react2.default.createElement(
-                'span',
-                { style: sectionStyle.span },
-                item.synopsis
-              )
-            )
-          );
-        }
-      });
+      var image = _react2.default.createElement(
+        'div',
+        { style: sectionStyle },
+        _react2.default.createElement(
+          'a',
+          { href: 'http://' + item.link },
+          _react2.default.createElement('img', { style: sectionStyle.image, src: __webpack_require__(192)("./" + item.imageurl) })
+        ),
+        _react2.default.createElement(
+          'h2',
+          { style: sectionStyle.h2 },
+          _react2.default.createElement(
+            'p',
+            { style: sectionStyle.title },
+            item.title
+          ),
+          _react2.default.createElement(
+            'span',
+            { style: sectionStyle.span },
+            item.synopsis
+          )
+        )
+      );
       return _react2.default.createElement(
         'div',
         { className: 'view' },
-        imageTitle
+        image
       );
     }
   }]);

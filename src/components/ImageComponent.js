@@ -9,8 +9,7 @@ export default class ImageComponent extends Component {
   }
 
   render(){
-    let getIndex = this.props.imageIndex;
-    let data = this.props.data;
+    let { imageIndex, data } = this.props;
     let sectionStyle = {
       width: "100%",
       height: "400px",
@@ -37,26 +36,22 @@ export default class ImageComponent extends Component {
         fontSize: '25px',
       }
     };
+    let item = data.carousel[imageIndex];
 
-    let imageTitle = data.carousel.map(function(item, index) {
-      if (getIndex === index) {
-        return (
-          <div key={index} style={sectionStyle}>
-            <a href={'http://'+item.link}>
-              <img style={sectionStyle.image} src={require('../'+item.imageurl)} />
-            </a>
-            <h2 style={sectionStyle.h2}>
-              <p style={sectionStyle.title}>{item.title}</p>
-              <span style={sectionStyle.span}>{item.synopsis}</span>
-            </h2>
-          </div>
-
-        )
-      }
-    });
+    let image = (
+        <div style={sectionStyle}>
+          <a href={'http://'+item.link}>
+            <img style={sectionStyle.image} src={require('../'+item.imageurl)} />
+          </a>
+          <h2 style={sectionStyle.h2}>
+            <p style={sectionStyle.title}>{item.title}</p>
+            <span style={sectionStyle.span}>{item.synopsis}</span>
+          </h2>
+        </div>
+      )
     return (
       <div className="view" >
-        {imageTitle }
+        { image }
       </div>
     );
   }
